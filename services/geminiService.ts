@@ -2,7 +2,7 @@ import { GoogleGenAI, GenerateContentResponse } from "@google/genai"; // Am elim
 import { GEMINI_TEXT_MODEL } from "../constants";
 import { GeminiContentSuggestion, TrendingTopicSuggestion } from "../types";
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.GEMINI_API_KEY;
 const MODEL_NAME = GEMINI_TEXT_MODEL;
 
 if (!API_KEY) {
