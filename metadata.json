@@ -1,0 +1,7 @@
+
+{
+  "name": "Social Media Dashboard",
+  "description": "A comprehensive dashboard to plan, track, and monetize your social media presence. Includes a content planner, engagement tracker, and monetization insights powered by Gemini API.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
