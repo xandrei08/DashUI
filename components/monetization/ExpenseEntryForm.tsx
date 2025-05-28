@@ -84,7 +84,7 @@ export const ExpenseEntryForm: React.FC<ExpenseEntryFormProps> = ({
   };
 
   const inputClasses = `block w-full sm:text-sm border rounded-md p-2 shadow-sm bg-card-default dark:bg-slate-700 border-input-default dark:border-slate-600 text-base-default dark:text-slate-100 focus:ring-1 ring-focus-default dark:ring-focus-dark focus:border-input-focus-default dark:focus:border-input-focus-dark`;
-  const labelClasses = `block text-sm font-medium text-muted-default dark:text-slate-300 mb-1`;
+  const labelClasses = `block text-sm font-medium text-muted-default dark:text-base-dark mb-1`;
   const buttonBase = `py-2 px-4 rounded-md font-medium transition`;
   // For expense form, the primary action button uses red/rose tones
   const primaryExpenseButton = `bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 text-white shadow-sm`;

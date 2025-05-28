@@ -8,140 +8,168 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: 'class', // Enable dark mode via class
+        darkMode: "class", // Enable dark mode via class
         theme: {
           extend: {
             colors: {
               pastel: {
                 // Light Mode - Page: Cream, Cards: White, Text: Dark Gray
-                'cream-100': '#FFFBF0',    // Page background - Light Cream
-                'blue-500': '#3B82F6',     // Primary Accent Base (similar to Tailwind blue-500)
-                'blue-600': '#2563EB',     // Primary Accent Default (similar to Tailwind blue-600)
-                'blue-700': '#1D4ED8',     // Primary Accent Hover (similar to Tailwind blue-700)
-                
+                "cream-100": "#F5F5F5", // Page background - Light Cream
+                "blue-500": "#3B82F6", // Primary Accent Base (similar to Tailwind blue-500)
+                "blue-600": "#2563EB", // Primary Accent Default (similar to Tailwind blue-600)
+                "blue-700": "#1D4ED8", // Primary Accent Hover (similar to Tailwind blue-700)
+                "blue-800": "#1C2B4A",
+
                 // Dark Mode Palette Refinements
-                'deep-blue-900': '#082032', // Even darker page background (custom dark blue)
-                'deep-blue-800': '#1C2B4A', // Card background (darker slate/blue)
-                'deep-blue-700': '#2A3F66', // Element background (hover, secondary)
-                'deep-blue-600': '#3A578F', // Borders or less prominent elements
+                "deep-blue-900": "#082032", // Even darker page background (custom dark blue)
+                "deep-blue-800": "#1C2B4A", // Card background (darker slate/blue)
+                "deep-blue-700": "#2A3F66", // Element background (hover, secondary)
+                "deep-blue-600": "#457B9D", // Borders or less prominent elements
 
-                'light-peach-300': '#FFDAB9', // Lighter peach for text or subtle highlights
-                'light-peach-400': '#FFB07C', // Main accent for dark mode (more vibrant peach)
-                'light-peach-500': '#FF8C42', // Hover for peach accent
+                "light-peach-300": "#FFDAB9", // Lighter peach for text or subtle highlights
+                "light-peach-400": "#FFB07C", // Main accent for dark mode (more vibrant peach)
+                "light-peach-500": "#FF8C42", // Hover for peach accent
 
-                'blue-200': '#E0E7FF',      // For dark mode text (very light blue/lavender)
-                'blue-300': '#C7D2FE',      // For dark mode muted text
+                "blue-200": "#E0E7FF", // For dark mode text (very light blue/lavender)
+                "blue-300": "#C7D2FE", // For dark mode muted text
               },
-              white: '#FFFFFF',
-              black: '#000000',
-              gray: { // Standard Tailwind grays for text & borders
-                50: '#F9FAFB',
-                100: '#F3F4F6', // element-default for light mode
-                200: '#E5E7EB',
-                300: '#D1D5DB',
-                400: '#9CA3AF',
-                500: '#6B7280',
-                600: '#4B5563',
-                700: '#374151',
-                800: '#1F2937', // base-default text for light mode
-                900: '#11182C',
+              white: "#FFFFFF",
+              royalBlue: "#1D3557",
+              black: "#000000",
+              gold: "#D4AF37",
+              purpleMat: "#894a83",
+              silver: {
+                color: "#F5F5F5",
               },
-              red: { 
-                100: '#FEE2E2',
-                200: '#FECACA',
-                300: '#FCA5A5',
-                400: '#F87171',
-                500: '#EF4444',
-                600: '#DC2626',
-                700: '#B91C1C',
+              gray: {
+                // Standard Tailwind grays for text & borders
+                50: "#F9FAFB",
+                100: "#F3F4F6", // element-default for light mode
+                150: "#111827",
+                200: "#E5E7EB",
+                300: "#D1D5DB",
+                400: "#9CA3AF",
+                500: "#dcdcdc",
+                600: "#4B5563",
+                700: "#374151",
+                800: "#1F2937", // base-default text for light mode
+                900: "#11182C",
+                950: "#ff6f00",
+                960: "#F8F9FA",
               },
-              green: { 
-                100: '#D1FAE5',
-                200: '#A7F3D0',
-                300: '#86EFAC',
-                400: '#4ADE80',
-                500: '#22C55E',
-                600: '#16A34A',
-                700: '#047857',
+              red: {
+                100: "#FEE2E2",
+                200: "#FECACA",
+                300: "#FCA5A5",
+                400: "#F87171",
+                500: "#EF4444",
+                600: "#DC2626",
+                700: "#B91C1C",
+                800: "#C40233",
               },
-               yellow: { 
-                100: '#FEF9C3',
-                200: '#FEF08A',
-                300: '#FDE047',
-                400: '#FACC15',
-                500: '#EAB308',
+              green: {
+                100: "#D1FAE5",
+                200: "#A7F3D0",
+                300: "#86EFAC",
+                400: "#4ADE80",
+                500: "#22C55E",
+                600: "#16A34A",
+                700: "#047857",
               },
-              purple: { 
-                100: '#F3E8FF', 
-                500: '#A855F7',
-                600: '#9333EA',
+              yellow: {
+                100: "#FEF9C3",
+                200: "#FEF08A",
+                300: "#FDE047",
+                400: "#FACC15",
+                500: "#EAB308",
               },
-              blue: { // General blues for UI elements not covered by primary accent
-                100: '#DBEAFE', // light blue for info toasts
-                200: '#BFDBFE',
-                700: '#1D4ED8', // dark blue for info toast text
-              }
-            }
+              purple: {
+                100: "#F3E8FF",
+                500: "#A855F7",
+                600: "#9333EA",
+              },
+              blue: {
+                // General blues for UI elements not covered by primary accent
+                100: "#DBEAFE", // light blue for info toasts
+                200: "#BFDBFE",
+                700: "#1D4ED8", // dark blue for info toast text
+                950: "#FF6B6B",
+              },
+              black: {
+                500: "#000000",
+              },
+            },
           },
-          backgroundColor: theme => ({
+          backgroundColor: (theme) => ({
             // Light Mode
-            'page-default': theme('colors.pastel.cream-100'),    
-            'card-default': theme('colors.white'),               
-            'element-default': theme('colors.gray.100'),         
-            'button-accent-default': theme('colors.pastel.blue-600'), 
-            'button-accent-hover-default': theme('colors.pastel.blue-700'),
-            'button-secondary-default': theme('colors.gray.200'), 
-            'button-secondary-hover-default': theme('colors.gray.300'),
+            "page-default": theme("colors.pastel.cream-100"),
+            "card-default": theme("colors.white"),
+            "card-default2": theme("colors.gray.960"),
+            "card-royalBlue": theme("colors.royalBlue"),
+            "silver-color": theme("colors.silver.color"),
+            "element-default": theme("colors.gray.200"),
+            "button-accent-default": theme("colors.pastel.blue-600"),
+            "button-accent-hover-default": theme("colors.pastel.blue-700"),
+            "button-secondary-default": theme("colors.gray.200"),
+            "button-secondary-hover-default": theme("colors.gray.300"),
 
             // Dark Mode Revised
-            'page-dark': theme('colors.pastel.deep-blue-900'),
-            'card-dark': theme('colors.pastel.deep-blue-800'),
-            'element-dark': theme('colors.pastel.deep-blue-700'),
-            'button-accent-dark': theme('colors.pastel.light-peach-400'),
-            'button-accent-hover-dark': theme('colors.pastel.light-peach-500'),
-            'button-secondary-dark': theme('colors.pastel.deep-blue-700'), 
-            'button-secondary-hover-dark': theme('colors.pastel.deep-blue-600'), 
+            "page-dark": theme("colors.pastel.deep-blue-900"),
+            "card-dark": theme("colors.pastel.deep-blue-800"),
+            "element-dark": theme("colors.pastel.deep-blue-700"),
+            "button-accent-dark": theme("colors.pastel.light-peach-400"),
+            "button-accent-hover-dark": theme("colors.pastel.light-peach-500"),
+            "button-secondary-dark": theme("colors.pastel.deep-blue-700"),
+            "button-secondary-hover-dark": theme("colors.pastel.deep-blue-600"),
           }),
-          textColor: theme => ({
+          textColor: (theme) => ({
             // Light Mode
-            'base-default': theme('colors.gray.800'),        
-            'muted-default': theme('colors.gray.500'),       
-            'on-button-accent-default': theme('colors.white'), 
-            'on-button-secondary-default': theme('colors.gray.800'), 
-            'accent-highlight-default': theme('colors.pastel.blue-600'), 
-            'positive-default': theme('colors.green.600'),
-            'negative-default': theme('colors.red.600'),
+            "base-default": theme("colors.gray.800"),
+            "muted-default": theme("colors.black.500"),
+            "muted-default4": theme("colors.gray.500"),
+            "muted-secondary": theme("colors.gray.900"),
+            "muted-black": theme("colors.black.500"),
+            "muted-failed": theme("colors.red.800"),
+            "muted-success": theme("colors.green.600"),
+            "muted-scheduled": theme("colors.blue.400"),
+            "royal-blue": theme("colors.royalBlue"),
+            "on-button-accent-default": theme("colors.white"),
+            "on-button-secondary-default": theme("colors.gray.800"),
+            "accent-highlight-default": theme("colors.gray.950"),
+            "accent-highlight-blue": theme("colors.blue.950"),
+            "positive-default": theme("colors.green.600"),
+            "negative-default": theme("colors.red.600"),
 
             // Dark Mode Revised
-            'base-dark': theme('colors.pastel.blue-200'),
-            'muted-dark': theme('colors.pastel.blue-300'),
-            'on-button-accent-dark': theme('colors.pastel.deep-blue-900'), // Dark text on light peach buttons
-            'on-button-secondary-dark': theme('colors.pastel.blue-200'),
-            'accent-highlight-dark': theme('colors.pastel.light-peach-400'),
-            'positive-dark': theme('colors.green.300'),
-            'negative-dark': theme('colors.red.300'),
+            "base-dark": theme("colors.pastel.blue-200"),
+            "muted-dark": theme("colors.pastel.blue-300"),
+            "on-button-accent-dark": theme("colors.pastel.deep-blue-900"), // Dark text on light peach buttons
+            "on-button-secondary-dark": theme("colors.pastel.blue-200"),
+            "accent-highlight-dark": theme("colors.pastel.light-peach-400"),
+            "positive-dark": theme("colors.green.300"),
+            "negative-dark": theme("colors.red.300"),
           }),
-          borderColor: theme => ({
+          borderColor: (theme) => ({
             // Light Mode
-            'card-default': theme('colors.gray.200'),        
-            'input-default': theme('colors.gray.300'),
-            'input-focus-default': theme('colors.pastel.blue-600'), 
-            'element-default': theme('colors.gray.200'), 
+            "card-default": theme("colors.gray.200"),
+            "input-default": theme("colors.gray.300"),
+            "input-focus-default": theme("colors.pastel.blue-600"),
+            "element-default": theme("colors.gray.200"),
 
             // Dark Mode Revised
-            'card-dark': theme('colors.pastel.deep-blue-600'), // More visible border for cards
-            'input-dark': theme('colors.pastel.deep-blue-600'),
-            'input-focus-dark': theme('colors.pastel.light-peach-400'), 
-            'element-dark': theme('colors.pastel.deep-blue-700'),
+            "card-dark": theme("colors.pastel.deep-blue-600"), // More visible border for cards
+            "input-dark": theme("colors.pastel.deep-blue-600"),
+            "input-focus-dark": theme("colors.pastel.light-peach-400"),
+            "element-dark": theme("colors.pastel.deep-blue-700"),
           }),
-          ringColor: theme => ({
-              // Light Mode
-              'focus-default': theme('colors.pastel.blue-600'), 
-              // Dark Mode Revised
-              'focus-dark': theme('colors.pastel.light-peach-400'),
-          })
-        }
-      }
+          ringColor: (theme) => ({
+            // Light Mode
+            "focus-default": theme("colors.pastel.blue-600"),
+            // Dark Mode Revised
+            "focus-dark": theme("colors.pastel.light-peach-400"),
+          }),
+        },
+      };
     </script>
     <style type="text/tailwindcss">
       @layer utilities {
@@ -173,17 +201,17 @@
           box-shadow: none !important;
           background-color: white !important; /* Ensure printable area BG is white */
         }
-        body.printing #printableMonetizationArea *, 
-        body.printing #printableMonetizationArea *:before, 
+        body.printing #printableMonetizationArea *,
+        body.printing #printableMonetizationArea *:before,
         body.printing #printableMonetizationArea *:after {
-            visibility: visible !important;
-            background-color: transparent !important; /* Let parent BG show or set to white if needed */
-            color: black !important; 
-            box-shadow: none !important;
-            border-color: #ccc !important; 
+          visibility: visible !important;
+          background-color: transparent !important; /* Let parent BG show or set to white if needed */
+          color: black !important;
+          box-shadow: none !important;
+          border-color: #ccc !important;
         }
-        body.printing #printableMonetizationArea table, 
-        body.printing #printableMonetizationArea th, 
+        body.printing #printableMonetizationArea table,
+        body.printing #printableMonetizationArea th,
         body.printing #printableMonetizationArea td {
           border: 1px solid #ccc !important;
           padding: 4px !important;
@@ -195,29 +223,29 @@
         body.printing #printableMonetizationArea span, /* Ensure spans are also black */
         body.printing #printableMonetizationArea div, /* Ensure divs are also black if they contain text */
         body.printing #printableMonetizationArea li {
-            color: black !important;
-            margin-bottom: 0.5em !important;
+          color: black !important;
+          margin-bottom: 0.5em !important;
         }
-         body.printing #printableMonetizationArea .print-only-text-black { /* Utility class if needed */
-            color: black !important;
+        body.printing #printableMonetizationArea .print-only-text-black {
+          /* Utility class if needed */
+          color: black !important;
         }
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.1.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.6.1",
-    "@google/genai": "https://esm.sh/@google/genai@^1.0.1"
-  }
-}
-</script>
-</head>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@^19.1.0",
+          "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+          "react/": "https://esm.sh/react@^19.1.0/",
+          "react-router-dom": "https://esm.sh/react-router-dom@^7.6.1",
+          "@google/genai": "https://esm.sh/@google/genai@^1.0.1"
+        }
+      }
+    </script>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
-</html><link rel="stylesheet" href="index.css">
-<script src="index.tsx" type="module"></script>
+</html>

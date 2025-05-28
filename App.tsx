@@ -190,19 +190,19 @@ const App: React.FC = () => {
             </div>
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-full focus:outline-none focus:ring-2 ring-focus-default dark:ring-focus-dark hover:bg-element-default dark:hover:bg-element-dark"
+              className="group p-2 rounded-full hover:bg-card-royalBlue dark:ring-focus-dark dark:hover:bg-element-dark"
               aria-label="Toggle dark mode"
             >
               {darkMode ? (
                 <SunIcon className="w-6 h-6 text-yellow-400" />
               ) : (
-                <MoonIcon className="w-6 h-6 text-muted-default dark:text-pastel-blue-300" />
+                <MoonIcon className="w-6 h-6 text-muted-secondary group-hover:text-muted-default4 dark:text-pastel-blue-300" />
               )}
             </button>
           </div>
         </header>
 
-        <nav className="bg-card-default dark:bg-card-dark shadow-sm p-2 sm:p-4 border-b border-card-default dark:border-card-dark">
+        <nav className="bg-card-royalBlue dark:bg-card-dark shadow-sm p-2 sm:p-4 border-b border-card-default dark:border-card-dark">
           <ul className="container mx-auto flex space-x-2 sm:space-x-4 justify-center sm:justify-start">
             {navItems.map((item) => (
               <li key={item.path}>
@@ -210,7 +210,7 @@ const App: React.FC = () => {
                   to={item.path}
                   end
                   className={({ isActive }) =>
-                    `flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ease-in-out
+                    `flex items-center text-muted-default4 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ease-in-out
                     ${
                       isActive
                         ? "bg-button-accent-default dark:bg-button-accent-dark text-on-button-accent-default dark:text-on-button-accent-dark"
@@ -282,12 +282,13 @@ const App: React.FC = () => {
           </Routes>
         </main>
 
-        <footer className="text-center p-4 bg-element-default dark:bg-element-dark text-muted-default dark:text-muted-dark text-sm border-t border-card-default dark:border-card-dark">
-          © {new Date().getFullYear()} Social Media Dashboard.
+        <footer className="text-center p-4 bg-card-royalBlue dark:bg-element-dark text-muted-default4 dark:text-muted-dark text-sm border-t border-card-default dark:border-card-dark">
+          © {new Date().getFullYear()} Social Media Dashboard.{" "}
+          <span className="text-accent-highlight-default">By Quickonomy</span>
         </footer>
 
         {/* Toast Container */}
-        <div className="toast-container fixed bottom-5 right-5 space-y-3 z-[100]">
+        <div className="toast-container bg-card-default dark:bg-button-accent-dark fixed bottom-5 dark:text-muted-default right-5 space-y-3 z-[100]">
           {toasts.map((toast) => (
             <div
               key={toast.id}

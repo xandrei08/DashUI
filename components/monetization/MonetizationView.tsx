@@ -423,14 +423,14 @@ export const MonetizationView: React.FC<MonetizationViewProps> = ({
           <div className="flex flex-wrap gap-2">
             <button
               onClick={handlePrintView}
-              className={`${aiButtonClasses} bg-blue-500 hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-600`}
+              className={`${aiButtonClasses} bg-button-accent-default text-on-button-accent-default hover:bg-button-accent-hover-default dark:bg-button-accent-dark dark:text-on-button-accent-dark dark:hover:bg-button-accent-hover-dark`}
             >
               <PrinterIcon className="w-4 h-4 mr-1 sm:mr-2" /> Print
             </button>
             {currentSubView === "income" && (
               <button
                 onClick={handleDownloadIncomeCSV}
-                className={`${aiButtonClasses} bg-green-500 hover:bg-green-600 dark:bg-green-500 dark:hover:bg-green-600`}
+                className={`${aiButtonClasses} bg-button-accent-default text-on-button-accent-default hover:bg-button-accent-hover-default dark:bg-button-accent-dark dark:text-on-button-accent-dark dark:hover:bg-button-accent-hover-dark`}
               >
                 <ArrowDownTrayIcon className="w-4 h-4 mr-1 sm:mr-2" /> Income
                 CSV
@@ -439,7 +439,7 @@ export const MonetizationView: React.FC<MonetizationViewProps> = ({
             {currentSubView === "expenses" && (
               <button
                 onClick={handleDownloadExpensesCSV}
-                className={`${aiButtonClasses} bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600`}
+                className={`${aiButtonClasses} bg-button-accent-default text-on-button-accent-default hover:bg-button-accent-hover-default dark:bg-red-500 dark:hover:bg-red-600 dark:bg-button-accent-dark dark:text-on-button-accent-dark dark:hover:bg-button-accent-hover-dark`}
               >
                 <ArrowDownTrayIcon className="w-4 h-4 mr-1 sm:mr-2" /> Expenses
                 CSV
@@ -449,14 +449,14 @@ export const MonetizationView: React.FC<MonetizationViewProps> = ({
               <>
                 <button
                   onClick={() => setShowRevenueSuggestModal(true)}
-                  className={`${aiButtonClasses} bg-purple-500 hover:bg-purple-600 dark:bg-purple-500 dark:hover:bg-purple-600`}
+                  className={`${aiButtonClasses} bg-button-accent-default text-on-button-accent-default hover:bg-button-accent-hover-default dark:bg-button-accent-dark dark:text-on-button-accent-dark dark:hover:bg-button-accent-hover-dark`}
                 >
                   <LightBulbIcon className="w-4 h-4 mr-1 sm:mr-2" />
                   Suggest Revenue
                 </button>
                 <button
                   onClick={() => setShowTipsModal(true)}
-                  className={`${aiButtonClasses} bg-teal-500 hover:bg-teal-600 dark:bg-teal-500 dark:hover:bg-teal-600`}
+                  className={`${aiButtonClasses} bg-button-accent-default text-on-button-accent-default hover:bg-button-accent-hover-default dark:bg-button-accent-dark dark:text-on-button-accent-dark dark:hover:bg-button-accent-hover-dark`}
                 >
                   <SparklesIcon className="w-4 h-4 mr-1 sm:mr-2" />
                   Monetization Tips
@@ -482,7 +482,7 @@ export const MonetizationView: React.FC<MonetizationViewProps> = ({
                   : inactiveSubViewButton
               }`}
             >
-              <ReceiptPercentIcon className="w-5 h-5 mr-2 inline-block" />{" "}
+              <ReceiptPercentIcon className="w-5 h-5 mr-2 inline-block " />{" "}
               Income
             </button>
             <button
@@ -493,11 +493,11 @@ export const MonetizationView: React.FC<MonetizationViewProps> = ({
                   : inactiveSubViewButton
               }`}
             >
-              <BriefcaseIcon className="w-5 h-5 mr-2 inline-block" /> Expenses
+              <BriefcaseIcon className="w-5 h-5 mr-2 inline-block " /> Expenses
             </button>
           </div>
           {currentSubView === "income" && (
-            <div className={`${cardBg} p-4 rounded-lg shadow-inner`}>
+            <div className={`${cardBg} p-4 rounded-lg shadow-inner `}>
               {" "}
               {/* Inner card for income section */}
               <div className="flex justify-between items-center mb-4">
@@ -620,14 +620,14 @@ export const MonetizationView: React.FC<MonetizationViewProps> = ({
                       <div className="flex space-x-2">
                         <button
                           onClick={() => handleEditIncomeEntry(entry)}
-                          className={`p-1.5 rounded hover:bg-element-default dark:hover:bg-element-dark text-blue-500`}
+                          className={`p-1.5 rounded text-muted-scheduled hover:bg-element-default dark:hover:bg-element-dark text-blue-500`}
                           title="Edit Income"
                         >
                           <PencilIcon className="w-4 h-4" />
                         </button>
                         <button
                           onClick={() => handleDeleteIncomeEntry(entry.id)}
-                          className={`p-1.5 rounded hover:bg-element-default dark:hover:bg-element-dark text-red-500`}
+                          className={`p-1.5 rounded text-accent-highlight-default hover:bg-element-default dark:hover:bg-element-dark text-red-500`}
                           title="Delete Income"
                         >
                           <TrashIcon className="w-4 h-4" />
@@ -766,14 +766,14 @@ export const MonetizationView: React.FC<MonetizationViewProps> = ({
                       <div className="flex space-x-2">
                         <button
                           onClick={() => handleEditExpenseEntry(entry)}
-                          className={`p-1.5 rounded hover:bg-element-default dark:hover:bg-element-dark text-blue-500`}
+                          className={`p-1.5 rounded text-muted-scheduled hover:bg-element-default dark:hover:bg-element-dark text-blue-500`}
                           title="Edit Expense"
                         >
                           <PencilIcon className="w-4 h-4" />
                         </button>
                         <button
                           onClick={() => handleDeleteExpenseEntry(entry.id)}
-                          className={`p-1.5 rounded hover:bg-element-default dark:hover:bg-element-dark text-red-500`}
+                          className={`p-1.5 rounded text-accent-highlight-default hover:bg-element-default dark:hover:bg-element-dark text-red-500`}
                           title="Delete Expense"
                         >
                           <TrashIcon className="w-4 h-4" />
