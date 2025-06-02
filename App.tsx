@@ -16,7 +16,7 @@ import {
   SparklesIcon,
 } from "./components/common/Icons";
 import {
-  SocialPlatform,
+  // SocialPlatform, // No longer directly used in App.tsx for DEFAULT_PLATFORMS if it's only used there.
   ScheduledPost,
   TrackedAccount,
   MonetizationEntry,
@@ -25,73 +25,34 @@ import {
 } from "./types";
 import { DEFAULT_PLATFORMS } from "./constants";
 
-const LOCAL_STORAGE_KEYS = {
-  SCHEDULED_POSTS: "socialDashboard_scheduledPosts",
-  TRACKED_ACCOUNTS: "socialDashboard_trackedAccounts",
-  MONETIZATION_ENTRIES: "socialDashboard_monetizationEntries",
-  EXPENSE_ENTRIES: "socialDashboard_expenseEntries",
-  DARK_MODE: "socialDashboard_darkMode",
-};
+// REMOVED: LOCAL_STORAGE_KEYS constant
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
-    const savedMode = localStorage.getItem(LOCAL_STORAGE_KEYS.DARK_MODE);
-    if (savedMode !== null) return savedMode === "true";
+    // Initialize directly from system preference
     return (
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     );
   });
 
-  const [scheduledPosts, setScheduledPosts] = useState<ScheduledPost[]>(() => {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEYS.SCHEDULED_POSTS);
-    return saved ? JSON.parse(saved) : [];
-  });
-  const [trackedAccounts, setTrackedAccounts] = useState<TrackedAccount[]>(
-    () => {
-      const saved = localStorage.getItem(LOCAL_STORAGE_KEYS.TRACKED_ACCOUNTS);
-      return saved ? JSON.parse(saved) : [];
-    }
-  );
+  // Initialize states to empty arrays, no localStorage lookup
+  const [scheduledPosts, setScheduledPosts] = useState<ScheduledPost[]>([]);
+  const [trackedAccounts, setTrackedAccounts] = useState<TrackedAccount[]>([]);
   const [monetizationEntries, setMonetizationEntries] = useState<
     MonetizationEntry[]
-  >(() => {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEYS.MONETIZATION_ENTRIES);
-    return saved ? JSON.parse(saved) : [];
-  });
-  const [expenseEntries, setExpenseEntries] = useState<ExpenseEntry[]>(() => {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEYS.EXPENSE_ENTRIES);
-    return saved ? JSON.parse(saved) : [];
-  });
+  >([]);
+  const [expenseEntries, setExpenseEntries] = useState<ExpenseEntry[]>([]);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
 
-  useEffect(() => {
-    localStorage.setItem(
-      LOCAL_STORAGE_KEYS.SCHEDULED_POSTS,
-      JSON.stringify(scheduledPosts)
-    );
-  }, [scheduledPosts]);
-
-  useEffect(() => {
-    localStorage.setItem(
-      LOCAL_STORAGE_KEYS.TRACKED_ACCOUNTS,
-      JSON.stringify(trackedAccounts)
-    );
-  }, [trackedAccounts]);
-
-  useEffect(() => {
-    localStorage.setItem(
-      LOCAL_STORAGE_KEYS.MONETIZATION_ENTRIES,
-      JSON.stringify(monetizationEntries)
-    );
-  }, [monetizationEntries]);
-
-  useEffect(() => {
-    localStorage.setItem(
-      LOCAL_STORAGE_KEYS.EXPENSE_ENTRIES,
-      JSON.stringify(expenseEntries)
-    );
-  }, [expenseEntries]);
+  // REMOVED: useEffect hooks that saved to localStorage
+  // useEffect(() => {
+  //   localStorage.setItem(
+  //     LOCAL_STORAGE_KEYS.SCHEDULED_POSTS,
+  //     JSON.stringify(scheduledPosts)
+  //   );
+  // }, [scheduledPosts]);
+  // ... and so on for other states
 
   const addToast = useCallback(
     (message: string, type: ToastMessage["type"] = "info") => {
@@ -114,12 +75,13 @@ const App: React.FC = () => {
   const toggleDarkMode = useCallback(() => {
     setDarkMode((prevMode) => {
       const newMode = !prevMode;
-      localStorage.setItem(LOCAL_STORAGE_KEYS.DARK_MODE, newMode.toString());
+      // REMOVED: localStorage.setItem(LOCAL_STORAGE_KEYS.DARK_MODE, newMode.toString());
       return newMode;
     });
   }, []);
 
   useEffect(() => {
+    // This useEffect for applying the dark mode class to the HTML element remains
     if (darkMode) {
       document.documentElement.classList.add("dark");
     } else {
@@ -151,21 +113,19 @@ const App: React.FC = () => {
   ];
 
   const getToastStyles = (type: ToastMessage["type"]) => {
-    // Dark mode styles with revised palette
     if (darkMode) {
       switch (type) {
         case "success":
-          return "bg-green-700 text-green-100 border border-green-600"; // Darker green, light text
+          return "bg-green-700 text-green-100 border border-green-600";
         case "error":
-          return "bg-red-700 text-red-100 border border-red-600"; // Darker red, light text
+          return "bg-red-700 text-red-100 border border-red-600";
         case "warning":
-          return "bg-yellow-500 text-gray-900 border border-yellow-600"; // Yellow, dark text for contrast
+          return "bg-yellow-500 text-gray-900 border border-yellow-600";
         case "info":
         default:
-          return "bg-pastel-deep-blue-700 text-pastel-blue-200 border border-pastel-deep-blue-600"; // Element bg, base text
+          return "bg-pastel-deep-blue-700 text-pastel-blue-200 border border-pastel-deep-blue-600";
       }
     }
-    // Light mode uses new palette: white cards, dark gray text, blue accent
     switch (type) {
       case "success":
         return "bg-green-100 text-green-700 border border-green-200";
@@ -236,7 +196,7 @@ const App: React.FC = () => {
                   trackedAccounts={trackedAccounts}
                   monetizationEntries={monetizationEntries}
                   expenseEntries={expenseEntries}
-                  darkMode={darkMode} // darkMode prop still useful for direct conditional styling if needed
+                  darkMode={darkMode}
                   addToast={addToast}
                 />
               }
